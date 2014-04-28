@@ -42,17 +42,23 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
   - **Returns**: a `Session` array with a `Names` array within it.
     - `Session`: array of the session and the `Names` array.
       - `session`: session needed for reading the cookie for logging in.
-      - `names`: an array with all the student's information matching the filter.
-        - `name`: the last name and first name of the student
-        - `class`: the student's class
+      - `Names`: an array with all the student's information matching the filter.
+        - `name`: the last name and first name of the student.
+        - `class`: the student's class.
         - `number`: the student's unique number identifier.
         - `username`: the full username used by CUP to login like this: `last name prefix first name (class) [number]`. **Note: some students do have an extra space between their last name and their prefix. PHP will not display that in HTML but it exsists in the variable**
   - **Parameters**: 
     - `filter`: the search string to search students for.
     - `schoolUrl`: the school's CUP website URL.
 - `getTimeTable($username,$password,$session,$schoolUrl)`: Login and get the student's timetable.
-  - **Returns**: a `Lesson` array with all the lessons week(s).
+  - **Returns**: a `Lesson` array with all the lessons in a week.
         **If the API fails to login, it will just return an empty array for now. Maybe I will change this in the future.**
+    - `date`: the date of the lesson like this: `2014-05-12` `Year-Month-Day`.
+    -  `day`: two letters of the day of the week.
+    -  `hour`: the hour of the lesson.  (Two numbers like this: `01`).
+    -  `teacher`: the name of the teacher who theaches.
+    -  `subject`: the subject of the lesson.
+    -  `classroom`: the lesson's classroom.
   - **Parameters:**:
     - `username`: the full username of the student like this: `last name prefix first name (class) [number]`.
     - `password`: for logging in at the CUP website.
