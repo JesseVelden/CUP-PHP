@@ -56,7 +56,7 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
     - `date`: the date of the lesson like this: `2014-05-12` `Year-Month-Day`.
     -  `day`: two letters of the day of the week (In Dutch of course).
     -  `hour`: the hour of the lesson (Two numbers like this: `01`).
-    -  `teacher`: the name of the teacher who theaches.
+    -  `teacher`: the name of the teacher who teaches.
     -  `subject`: the subject of the lesson.
     -  `classroom`: the lesson's classroom.
   - **Parameters:**:
