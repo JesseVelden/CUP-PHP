@@ -54,8 +54,8 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
   - **Returns**: a `Lesson` array with all the lessons in a week.
         **If the API fails to login, it will just return an empty array for now. Maybe I will change this in the future.**
     - `date`: the date of the lesson like this: `2014-05-12` `Year-Month-Day`.
-    -  `day`: two letters of the day of the week.
-    -  `hour`: the hour of the lesson.  (Two numbers like this: `01`).
+    -  `day`: two letters of the day of the week (In Dutch of course).
+    -  `hour`: the hour of the lesson (Two numbers like this: `01`).
     -  `teacher`: the name of the teacher who theaches.
     -  `subject`: the subject of the lesson.
     -  `classroom`: the lesson's classroom.
