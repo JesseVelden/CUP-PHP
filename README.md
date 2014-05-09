@@ -6,17 +6,17 @@ This is an unofficial PHP API for the 'Contact Uren Planner' better known as CUP
 **This CUPWEB API does not support the plan function, I've made this just for getting the timetable because my school does not use the plan function.**
 
 ##Using
-The CUPWEB API is pretty straight forward, just look at [api-example.php](api-example.php), however because of some limitations of the CUP website it must call the CUP website once to save a cookie before you can get a timetable. The best you can do is then to use this for searching for users.
+The CUPWEB API is pretty straight forward, just look at [api-example.php](api-example.php), however because of some limitations of the CUPWEB website it must call the CUPWEB website once to save a cookie before you can get a timetable. The best you can do is then to use this for searching for users.
 
 **If PHP fails to save the cookie file than just make sure your PHP has the right rights for saving the cookie file.**
 
-**Because of another strange bug in the CUP website, some students DO have TWO spaces between their last name and their prefix in their full username. Keep in mind that PHP does not display two spaces normally in the HTML.**
+**Because of another strange bug in the CUPWEB website, some students DO have TWO spaces between their last name and their prefix in their full username. Keep in mind that PHP does not display two spaces normally in the HTML.**
 
 ##Code examples
 Take a look at [api-example.php](api-example.php) for a basic overview what you can do with the CUPWEB API.
 
 ###General information
-- CUP-PHP's functions can be called easily like this: `cupphp\getTimeTable()`. As you can see it uses `cupphp` as namespace.
+- CUPWEB API's functions can be called easily like this: `cupphp\getTimeTable()`. As you can see it uses `cupphp` as namespace.
 - Currently there is only one exception: ``CUPphp:X:invalid_server_response, server returned invalid response``.
 
 ###Classes
@@ -73,4 +73,4 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
 Being able to change the time period for the timetable.
 
 ##Thanks to
-**MegaCookie**: For the *core* API
+**MegaCookie**: For the *core* CUPWEB API
