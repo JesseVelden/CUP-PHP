@@ -15,15 +15,16 @@ class Names{
 }
 
 class Session{
-	public $sessionId,$names;
-	public function __construct($sid,$nam){$this->set($sid,$nam);}
+	public $sessionId,$names,$eventvalidation;
+	public function __construct($sid,$nam,$ev){$this->set($sid,$nam,$ev);}
 	public function __destruct(){
 		if(file_exists(_CUP_PHP_API_COOKIE_BASE_NAME.$this->sessionId))
 			unlink(_CUP_PHP_API_COOKIE_BASE_NAME.$this->sessionId);
 	}
-	public function set($sid,$nam){
+	public function set($sid,$nam,$ev){
 		$this->sessionId=$sid;
 		$this->names=$nam;
+		$this->eventvalidation=$ev;
 	}
 }
 
@@ -69,6 +70,7 @@ class Cupphp{
 		}
 		$result=curl_exec($ch);
 		curl_close($ch);
+		//unlink(_CUP_PHP_API_COOKIE_BASE_NAME.$cookie_id);
 		return $result;
 	}
 	private function encodeURIComponent($str){
@@ -89,6 +91,7 @@ class Cupphp{
 		$result=self::curlget("http://".self::encodeURIComponent($schoolURL)."/Default.aspx",$sessionId,$postdata);
 		if($result[0]=="<")throw new \Exception("CUPphp:getNames:invalid_server_response, server returned invalid response");
 		preg_match_all( '/<option value="([^"]+)">/', $result, $match, PREG_SET_ORDER);
+		preg_match('~<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="(.*?)" />~', $result, $eventValidation);
 		$nameList = array();
 		foreach ($match as $item) {
 			preg_match( '/[^"]+ (?! \((.*?)\))/', $item[1], $name);
@@ -96,15 +99,15 @@ class Cupphp{
 			preg_match( '/\[(.*?)\]/', $item[1], $number);
 			$nameList[]=new Names(substr_replace($name[0],"",-1),$class[1],$number[1],$item[1]);
 		}
-		$list=new Session($sessionId,$nameList);
+		$list=new Session($sessionId,$nameList,$eventValidation[1]);
 		return $list;
 	}
-	public static function getTimeTable($user,$pass,$schoolURL,$session){
+	public static function getTimeTable($user,$pass,$schoolURL,$session,$eventvalidation){
 		$postdata = array();
 		$postdata['__EVENTTARGET'] = "";
 		$postdata['__EVENTARGUMENT'] = "";
 		$postdata['__VIEWSTATE'] = ('/wEPDwUKLTQwMjM2NTU0NGRk');
-		$postdata['__EVENTVALIDATION'] = ('/wEWBgKF14PzDgLWpZaWAQLY6+jXBgKV0fvMDwKA1s+bCALJ4cupAg==');
+		$postdata['__EVENTVALIDATION'] = $eventvalidation;
 		$postdata['_nameDropDownList'] = $user;
 		$postdata['_pincodeTextBox'] = $pass;
 		$postdata['_roosterbutton'] = ('Rooster');
@@ -122,5 +125,5 @@ class Cupphp{
 }
 
 function getNames($filter,$schoolUrl){return Cupphp::getNames($filter,$schoolUrl);}
-function getTimeTable($user,$pass,$schoolUrl,$session){return Cupphp::getTimeTable($user,$pass,$schoolUrl,$session);}
+function getTimeTable($user,$pass,$schoolUrl,$session,$eventvalidation){return Cupphp::getTimeTable($user,$pass,$schoolUrl,$session,$eventvalidation);}
 ?>
