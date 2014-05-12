@@ -22,8 +22,8 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
 ###Classes
 - `Session` holds the data for the session and the array of the names class you've searched for returned by `getNames()`.
   - **Usage**: It holds the important `sessionId` and the `names` class array. Look at the `getNames()` function for usage informations.
-  - **Properties**: `sessionId` `names`.
-  - **Functions**: `__constructor()` mirrors `set()`, `set($sessionId,$names)`.
+  - **Properties**: `sessionId` `names` `eventvalidation`.
+  - **Functions**: `__constructor()` mirrors `set()`, `set($sessionId,$names,eventvalidation)`.
 
 - `Names` holds the data for students you've searched for returned by `getNames()`.
   - **Usage**: It has an array with the student's `name`, `class`, `number`, `username`  Look at the `getNames()` function for usage information. 
@@ -46,11 +46,13 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
         - `name`: the last name and first name of the student.
         - `class`: the student's class.
         - `number`: the student's unique number identifier.
-        - `username`: the full username used by CUP to login like this: `last name prefix first name (class) [number]`. **Note: some students do have an extra space between their last name and their prefix. PHP will not display that in HTML but it exsists in the variable**
+        - `username`: the full username used by CUP to login like this: `last name prefix first name (class) [number]`.
+      - `eventvalidation`: the eventValidation needed for login aspx files.        
+**Note: some students do have an extra space between their last name and their prefix. PHP will not display that in HTML but it exsists in the variable**
   - **Parameters**: 
     - `filter`: the search string to search students for.
     - `schoolUrl`: the school's CUP website URL.
-- `getTimeTable($username,$password,$session,$schoolUrl)`: Login and get the student's timetable.
+- `getTimeTable($username,$password,$session,$schoolUrl,$eventvalidation)`: Login and get the student's timetable.
   - **Returns**: a `Lesson` array with all the lessons in a week.
         **If the API fails to login, it will just return an empty array for now. Maybe I will change this in the future.**
     - `date`: the date of the lesson like this: `2014-05-12` `Year-Month-Day`.
