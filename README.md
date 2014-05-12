@@ -53,7 +53,7 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
     - `filter`: the search string to search students for.
     - `schoolUrl`: the school's CUP website URL.
 - `getTimeTable($username,$password,$session,$schoolUrl,$eventvalidation)`: Login and get the student's timetable.
-  **`$eventvalidation` needs to be encoded (encode URL) before you call this function in order to work!**
+  **IMPORTANT: `$eventvalidation` needs to be encoded (encode URL) before you call this function in order to get the timetable!**
   - **Returns**: a `Lesson` array with all the lessons in a week.
         **If the API fails to login, it will just return an empty array for now. Maybe I will change this in the future.**
     - `date`: the date of the lesson like this: `2014-05-12` `Year-Month-Day`.
