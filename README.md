@@ -6,7 +6,7 @@ This is an unofficial PHP API for the 'Contact Uren Planner' better known as CUP
 **This CUPWEB API does not support the plan function, I've made this just for getting the timetable because my school does not use the plan function.**
 
 ##Using
-The CUPWEB API is pretty straight forward, just look at [api-example.php](api-example.php), however because of some limitations of the CUPWEB website it must call the CUPWEB website once to save a cookie before you can get a timetable. The best you can do is then to use this for searching for users.
+The CUPWEB API is pretty straight forward, just look at [api-example.php](api-example.php), however because of some limitations of the CUPWEB website (and just ASPX's EventValidatioN) it must call the CUPWEB website once to save a cookie before you can get a timetable. You must search for a (last) name you will be using for login and fetching the timetable, not a random other name!
 
 **If PHP fails to save the cookie file than just make sure your PHP has the right rights for saving the cookie file.**
 
@@ -50,7 +50,7 @@ Take a look at [api-example.php](api-example.php) for a basic overview what you 
       - `eventvalidation`: the eventValidation needed for login aspx files.        
 **Note: some students do have an extra space between their last name and their prefix. PHP will not display that in HTML but it exsists in the variable**
   - **Parameters**: 
-    - `filter`: the search string to search students for.
+    - `filter`: the search string to search students for. Because of ASPX's stupid EventValidation you need to provide a (last) name you're going to use for the login and timetable procedure, not a random other name.
     - `schoolUrl`: the school's CUP website URL.
 - `getTimeTable($username,$password,$session,$schoolUrl,$eventvalidation)`: Login and get the student's timetable.
   **IMPORTANT: `$eventvalidation` needs to be encoded (encode URL) before you call this function in order to get the timetable!**
