@@ -111,7 +111,7 @@ class Cupphp{
 		$postdata['__EVENTTARGET'] = "";
 		$postdata['__EVENTARGUMENT'] = "";
 		$postdata['__VIEWSTATE'] = ('/wEPDwUKLTQwMjM2NTU0NGRk'); //***** CHANGE THIS VALUE TO THE RIGHT VIEWSTATE you can find on your (CUPWEB-SITE).nl when you choose the correct person and enter the password. If you don't have any idea how to do this, just email me at the address on my profile: https://github.com/MegaCookie
-		$postdata['__EVENTVALIDATION'] = $eventvalidation;
+		$postdata['__EVENTVALIDATION'] = $eventvalidation; //Make sure this is url encoded!
 		$postdata['_nameDropDownList'] = $user;
 		$postdata['_pincodeTextBox'] = $pass;
 		$postdata['_roosterbutton'] = ('Rooster');
