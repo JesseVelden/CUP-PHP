@@ -89,7 +89,7 @@ class Cupphp{
 		$postdata['__EVENTARGUMENT'] = "";
 		$postdata['__VIEWSTATE'] = ('/wEPDwULLTE3NDM5MzMwMzRkZA==');
 		$postdata['__EVENTVALIDATION'] = ('/wEWBAL++4CfBgK52+LYCQK1gpH7BAL0w/PHAQ==');
-		$postdata['_nameTextBox'] = urlencode($filter);
+		$postdata['_nameTextBox'] = $filter;
 		$postdata['_zoekButton'] = urlencode('Zoek');
 		$postdata['numberOfLettersField'] = urlencode('3');
 		$result=self::curlget("http://".self::encodeURIComponent($schoolURL)."/Default.aspx",$sessionId,$postdata);
