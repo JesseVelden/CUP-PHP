@@ -17,7 +17,7 @@ The CUPWEB API is pretty straight forward, just look at [api-example.php](api-ex
 ##Code examples
 Take a look at [api-example.php](api-example.php) for a basic overview what you can do with the CUPWEB API.
 
-###General information
+###General information (Boring =P)
 - CUPWEB API's functions can be called easily like this: `cupphp\getTimeTable()`. As you can see it uses `cupphp` as namespace.
 - Currently there is only one exception: ``CUPphp:X:invalid_server_response, server returned invalid response``.
 
