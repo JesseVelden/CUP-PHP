@@ -87,8 +87,9 @@ class Cupphp{
 		$postdata = array();
 		$postdata['__EVENTTARGET'] = "";
 		$postdata['__EVENTARGUMENT'] = "";
-		$postdata['__VIEWSTATE'] = ('/wEPDwULLTE3NDM5MzMwMzRkZA==');
-		$postdata['__EVENTVALIDATION'] = ('/wEWBAL++4CfBgK52+LYCQK1gpH7BAL0w/PHAQ==');
+		$postdata['__VIEWSTATE'] = ('/wEPDwULLTE3NDM5MzMwMzRkZBim3kllNqGDuaLkVw0xfN3mawe+WrzF9WoD4Ug2kCrl');
+		$postdata['__VIEWSTATEGENERATOR'] = 'CA0B0334';
+		$postdata['__EVENTVALIDATION'] = ('/wEWBAKN3oW8CgK52+LYCQK1gpH7BAL0w/PHAXkJpkI8QsDqinzJkUMUvQHlOIgFI4j3kVTna69oQT0x');
 		$postdata['_nameTextBox'] = $filter;
 		$postdata['_zoekButton'] = urlencode('Zoek');
 		$postdata['numberOfLettersField'] = urlencode('3');
