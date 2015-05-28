@@ -8,7 +8,7 @@ This is an unofficial PHP API for the 'Contact Uren Planner' better known as CUP
 ##Usage
 The CUPWEB API is pretty straight forward, just look at [api-example.php](api-example.php), however because of some limitations of the CUPWEB website (and just ASPX's EventValidation) it must call the CUPWEB website once to save a cookie before you can get a timetable. You must search for a (last) name you will be using for login and fetching the timetable, not a random other name!
 
-**Before you use this API, first edit api.php and edit the viewstate in the `getTimetable` function ([line 113](https://github.com/MegaCookie/CUP-PHP/blob/master/api.php#L113)) to the right viewstate you can find on your (CUPWEB-SITE).nl where you enter the password after you've searched for a name. If you don't have any idea how to do this, just email me at the address on my profile: https://github.com/MegaCookie**
+**Before you use this API, you must initialize it first. So make sure you've set the viewstate of your CUPWEB site. Just press F12 for developer settings in Chrome and search for viewstate. If you don't have any idea how to do this, just email me at the address on my profile: https://github.com/MegaCookie**
 
 **If PHP fails to save the cookie file than just make sure your PHP has the right rights for saving the cookie file.**
 
